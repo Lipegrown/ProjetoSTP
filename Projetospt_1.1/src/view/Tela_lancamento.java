@@ -114,6 +114,7 @@ public class Tela_lancamento extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         btLimpar = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -165,6 +166,9 @@ public class Tela_lancamento extends javax.swing.JFrame {
         btLimpar.setText("Limpar");
         getContentPane().add(btLimpar, new org.netbeans.lib.awtextra.AbsoluteConstraints(139, 194, -1, -1));
 
+        jLabel5.setText("jLabel5");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 110, -1, -1));
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -211,15 +215,19 @@ public class Tela_lancamento extends javax.swing.JFrame {
             func = pagMensal.getId_funcioanrio();
             sal = pagMensal.getSalario();
             
-            srv.update(pagMensal);
+            srv.insert(pagMensal);
            
         }
-        else { //gravar
-               PagMensal pagamento = new PagMensal(Integer.parseInt(edHorasTrabalhadas.getText()), func, sal, formato.parse(edPeriodo.getText()));
+        /*else { //gravar
+            
+               Funcionarios funcionario = (Funcionarios) cbFuncionario.getSelectedItem();
+               func = funcionario.getId();
+               sal = (calc.calcularPagamento(Double.parseDouble(edValorHora.getText()), Double.parseDouble(edHorasTrabalhadas.getText())));
+               PagMensal pagamento = new PagMensal(Integer.parseInt(edHorasTrabalhadas.getText()), func,sal , formato.parse(edPeriodo.getText()));
                srv.insert(pagamento);
                limparTela();
                
-             }
+             }*/
         limparTela();
         this.atualizarListaFuncionario();
           
@@ -297,5 +305,6 @@ public class Tela_lancamento extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     // End of variables declaration//GEN-END:variables
 }
